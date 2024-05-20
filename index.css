@@ -48,6 +48,7 @@ h1 {
   border-radius: 5px;
   flex: 1; /* Allows input to grow */
   margin-right: 10px;
+  text-align: center;
 }
 
 .dropdown {
@@ -81,10 +82,15 @@ h1 {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  user-select: none;
 }
 
 .dropdownContent a:hover {
   background-color: #ddd;
+}
+
+.dropdownContent a:active{
+  background-color: rgba(0,0,0,0.2);
 }
 
 .dropdown:hover .dropdownContent {
@@ -126,6 +132,11 @@ h1 {
   color: grey;
 }
 
+.convert:active{
+  background-color: grey;
+  color: white;
+}
+
 .quantities{
 	background-color: #04AA6D;
   height: 45px;
@@ -137,6 +148,15 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.quantities:hover{
+  background-color: #0f8e60;
+}
+
+.quantities:active{
+  background-color: #04AA6D;
+}
+
 
 .buttonLine{
 	margin-bottom: 5%;

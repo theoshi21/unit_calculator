@@ -13,31 +13,31 @@
       <h1>UNIT CONVERTER</h1>
       
       <div class="buttonLine">
-        <button class="quantities">TEMPERATURE</button>
-        <button class="quantities">LENGTH</button>
-        <button class="quantities">MASS</button>
-        <button class="quantities">TIME</button>
+        <button class="quantities" onclick="temp()">TEMPERATURE</button>
+        <button class="quantities" onclick="length()">LENGTH</button>
+        <button class="quantities" onclick="mass()">MASS</button>
+        <button class="quantities" onclick="time()">TIME</button>
       </div>
 
 
       <div class="alignInLine">
         <input type="number" id="number">
         <div class="dropdown">
-          <select class="dropbtn">Dropdown</select>
-          <div class="dropdownContent">
-            <a>fill</a>
+          <select class="dropbtn" id="inputUnits"></select>
+          <div class="dropdownContent" id="units">
+            <a>Choose a quantity!</a>
           </div>
         </div>
-        <div class="result">&nbsp;</div>
+        <div class="result" id="resulta">&nbsp;</div>
         <div class="dropdown">
-          <select class="dropbtn">Dropdown</select>
-          <div class="dropdownContent">
-            <a>fill</a>
+          <select class="dropbtn" id="resultUnits">Dropdown</select>
+          <div class="dropdownContent" id="unitsResult">
+            <a>Choose a quantity!</a>
           </div>
         </div>
       </div>
 
-      <button class="convert">CONVERT</button>
+      <button class="convert" onclick="convert()">CONVERT</button>
     </div>
   </div>
 
