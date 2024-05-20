@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #BDE6F1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #502064;
+        }
+
+        h1 {
+            margin-top: 3%;
+        }
+
+        h2 {
+            color: #C98B70;
+        }
+
+        table {
+            text-align: center;
+            color: #7F669D;
+        }
+
+        input[type=button], #conversion {
+            border-radius: 8px;
+            border-color: #7D1E6A;
+            border-width: 4px;
+        }
+
+        #number {
+            border-radius: 5px;
+            border-color: #7D1E6A;
+            border-width: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CONVERSION CALCULATOR</h1>
+    <center style="margin-top: 10%;">
+        <input type="number" id="number">
+        <select id="conversion" hidden="true"></select>
+        <input type="button" onclick="Convert()" id="Convert" value="Convert"><br><br>
+        <input type="button" onclick="Temp()" id="Temperature" value="Temperature">
+        <input type="button" onclick="Length()" id="Length" value="Length">
+        <input type="button" onclick="Mass()" id="Mass" value="Mass">
+        <input type="button" onclick="Time()" id="Time" value="Time"><br>
+        <br><br>
+        <table id="table"></table>
+    </center>
+    <script>
+        var options = "", button = "", display = "";
+
+        function Convert() {
+            button = document.getElementById('conversion').value;
+            if (document.getElementById('number').value != "") {
+                var measure = parseFloat(document.getElementById('number').value);
+                switch (button) {
+                    case "Celsius":
+                        Celsius(measure);
+                        break;
+                    case "Fahrenheit":
+                        Fahrenheit(measure);
+                        break;
+                    case "Rankine":
+                        Rankine(measure);
+                        break;
+                    case "Kelvin":
+                        Kelvin(measure);
+                        break;
+                    case "Seconds":
+                        Seconds(measure);
+                        break;
+                    case "Minutes":
+                        Minutes(measure);
+                        break;
+                    case "Hours":
+                        Hours(measure);
+                        break;
+                    case "Days":
+                        Days(measure);
+                        break;
+                    case "Meters":
+                        Meters(measure);
+                        break;
+                    case "Kilometers":
+                        Kilometers(measure);
+                        break;
+                    case "Centimeters":
+                        Centimeters(measure);
+                        break;
+                    case "Millimeters":
+                        Millimeters(measure);
+                        break;
+                    case "Nanometers":
+                        Nanometers(measure);
+                        break;
+                    case "Micrometers":
+                        Micrometers(measure);
+                        break;
+                    case "Miles":
+                        Miles(measure);
+                        break;
+                    case "Yards":
+                        Yards(measure);
+                        break;
+                    case "Feet":
+                        Feet(measure);
+                        break;
+                    case "Inches":
+                        Inches(measure);
+                        break;
+                    case "Grams":
+                        Grams(measure);
+                        break;
+                    case "Kilograms":
+                        Kilograms(measure);
+                        break;
+                    case "Milligrams":
+                        Milligrams(measure);
+                        break;
+                    case "Micrograms":
+                        Micrograms(measure);
+                        break;
+                    case "Pounds":
+                        Pounds(measure);
+                        break;
+                    case "Ounces":
+                        Ounces(measure);
+                        break;
+                    case "Tons":
+                        Tons(measure);
+                        break;
+                    default:
+                        alert("Please select a valid conversion option!");
+                }
+            } else {
+                alert("Please input a number!");
+            }
+        }
+
+        function Temp() {
+            document.getElementById('conversion').hidden = false;
+            document.getElementById('number').disabled = false;
+            document.getElementById('conversion').innerHTML = '<option value="Celsius">Celsius</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Fahrenheit">Fahrenheit</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Rankine">Rankine</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Kelvin">Kelvin</option>';
+        }
+
+        function Length() {
+            document.getElementById('conversion').hidden = false;
+            document.getElementById('number').disabled = false;
+            document.getElementById('conversion').innerHTML = '<option value="Meters">Meters</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Kilometers">Kilometers</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Centimeters">Centimeters</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Millimeters">Millimeters</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Nanometers">Nanometers</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Micrometers">Micrometers</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Miles">Miles</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Yards">Yards</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Feet">Feet</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Inches">Inches</option>';
+        }
+
+        function Mass() {
+            document.getElementById('conversion').hidden = false;
+            document.getElementById('number').disabled = false;
+            document.getElementById('conversion').innerHTML = '<option value="Grams">Grams</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Kilograms">Kilograms</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Milligrams">Milligrams</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Micrograms">Micrograms</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Pounds">Pounds</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Ounces">Ounces</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Tons">Tons</option>';
+        }
+
+        function Time() {
+            document.getElementById('conversion').hidden = false;
+            document.getElementById('number').disabled = false;
+            document.getElementById('conversion').innerHTML = '<option value="Seconds">Seconds</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Minutes">Minutes</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Hours">Hours</option>';
+            document.getElementById('conversion').innerHTML += '<option value="Days">Days</option>';
+        }
+
+        //functions for conversion:
+        //Temperature
+        function Celsius(temp) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Fahrenheit is: ' + (temp * (9/5) + 32).toFixed(2) + '°F</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Rankine is: ' + (temp * (9/5) + 491.67).toFixed(2) + '°R</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Kelvin is: ' + (temp + 273.15).toFixed(2) + ' °K</td></tr>';
+        }
+
+        function Fahrenheit(temp) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Celsius is: ' + ((temp - 32) * (5/9)).toFixed(2) + '°C</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Rankine is: ' + (temp + 459.67).toFixed(2) + '°R</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Kelvin is: '+ ((temp + 459.67) * (5/9)).toFixed(2)+'°K</td></tr>';
+        }
+        function Rankine(temp){
+            document.getElementById('table').innerHTML = "";    
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Celcius is: '+ ((temp - 491.67)*(5/9)).toFixed(2)+'°C</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Fahrenheit is: '+(temp - 459.67).toFixed(2)+'°F</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Kelvin is: '+((temp * (5/9))).toFixed(2)+'°K</td></tr>';
+        }
+        function Kelvin(temp){
+            document.getElementById('table').innerHTML = "";    
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Celcius is: '+ (temp - 273.15).toFixed(2)+'°C</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Fahrenheit is: '+((temp * (9/5)) - 459.67).toFixed(2) +'°F</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Temperature in Rankine is: '+ (temp * (9/5)).toFixed(2)+'°R</td></tr>';
+        }
+        //Time
+        function Seconds(time){
+            document.getElementById('table').innerHTML = "";    
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Minutes is: '+ (time/60)+' minutes</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Hours is: '+(time/3600)+' hours</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Days is: '+(time/86400)+' days</td></tr>';
+        }
+        function Minutes(time){
+            document.getElementById('table').innerHTML = "";    
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Seconds is: '+ (time*60)+' seconds</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Hours is: '+(time/60)+' hours</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Days is: '+(time/1440) +' days</td></tr>';
+        }
+        function Hours(time){
+            document.getElementById('table').innerHTML = "";    
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Seconds is: '+ (time*3600)+' seconds</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Minutes is: '+(time*60)+' minutes</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Days is: '+(time/24)+' days</td></tr>';
+        }
+        function Days(time){
+            document.getElementById('table').innerHTML = "";    
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Seconds is: '+ (time*86400)+' seconds</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Minutes is: '+(time*1440)+' minutes</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Time in Hours is: '+(time*24)+' hours</td></tr>';
+        }
+        //Length
+        function Meters(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length / 1000).toFixed(5) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length * 100).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 1000).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.000621371).toFixed(5) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 1.09361).toFixed(2) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 3.28084).toFixed(2) + ' ft</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 39.3701).toFixed(2) + ' in</td></tr>';
+        }
+
+        function Kilometers(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length * 1000).toFixed(2) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length * 100000).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 1000000).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.621371).toFixed(5) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 1093.61).toFixed(2) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 3280.84).toFixed(2) + ' ft</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 39370.1).toFixed(2) + ' in</td></tr>';
+        }
+
+        function Centimeters(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length / 100).toFixed(5) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length / 100000).toFixed(5) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 10).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.0000062137).toFixed(8) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 0.0109361).toFixed(5) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 0.0328084).toFixed(5) + ' ft</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 0.393701).toFixed(5) + ' in</td></tr>';
+        }
+
+        function Millimeters(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length / 1000).toFixed(5) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length / 1000000).toFixed(7) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length / 10).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.000000621371).toFixed(9) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 0.00109361).toFixed(6) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 0.00328084).toFixed(6) + ' ft</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 0.0393701).toFixed(5) + ' in</td></tr>';
+        }
+
+        function Miles(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length * 1609.34).toFixed(2) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length * 1.60934).toFixed(2) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length * 160934).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 1609340).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 1760).toFixed(2) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 5280).toFixed(2) + ' ft</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 63360).toFixed(2) + ' in</td></tr>';
+        }
+
+        function Yards(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length * 0.9144).toFixed(2) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length * 0.0009144).toFixed(6) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length * 91.44).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 914.4).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.000568182).toFixed(6) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 3).toFixed(2) + ' ft</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 36).toFixed(2) + ' in</td></tr>';
+        }
+        function Feet(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length * 0.3048).toFixed(2) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length * 0.0003048).toFixed(6) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length * 30.48).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 304.8).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.000189394).toFixed(6) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 0.333333).toFixed(2) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length * 12).toFixed(2) + ' in</td></tr>';
+        }
+
+        function Inches(length) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length * 0.0254).toFixed(4) + ' m</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length * 0.0000254).toFixed(8) + ' km</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length * 2.54).toFixed(2) + ' cm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length * 25.4).toFixed(2) + ' mm</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length * 0.0000157828).toFixed(10) + ' mi</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length * 0.0277778).toFixed(7) + ' yd</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length * 0.0833333).toFixed(7) + ' ft</td></tr>';
+        }
+		function Nanometers(length) {
+			document.getElementById('table').innerHTML = "";
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length / 1e9).toFixed(9) + ' m</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length / 1e12).toFixed(12) + ' km</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length / 1e7).toFixed(7) + ' cm</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length / 1e6).toFixed(6) + ' mm</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Micrometers is: ' + (length / 1e3).toFixed(3) + ' µm</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length / 1.609e+12).toFixed(12) + ' mi</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length / 9.144e8).toFixed(9) + ' yd</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length / 3.048e8).toFixed(9) + ' ft</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length / 2.54e7).toFixed(7) + ' in</td></tr>';
+		}
+
+			function Micrometers(length) {
+			document.getElementById('table').innerHTML = "";
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Meters is: ' + (length / 1e6).toFixed(6) + ' m</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Kilometers is: ' + (length / 1e9).toFixed(9) + ' km</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Centimeters is: ' + (length / 1e4).toFixed(4) + ' cm</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Millimeters is: ' + (length / 1e3).toFixed(3) + ' mm</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Nanometers is: ' + (length * 1e3).toFixed(0) + ' nm</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Miles is: ' + (length / 1.609e+9).toFixed(9) + ' mi</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Yards is: ' + (length / 9.144e5).toFixed(6) + ' yd</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Feet is: ' + (length / 3.048e5).toFixed(6) + ' ft</td></tr>';
+			document.getElementById('table').innerHTML += '<tr><td>The Length in Inches is: ' + (length / 2.54e4).toFixed(4) + ' in</td></tr>';
+		}
+
+
+
+        //Mass
+        function Micrograms(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Grams is: ' + (mass / 1000000).toFixed(2) + ' g</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Kilograms is: ' + (mass / 1000000000).toFixed(2) + ' kg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Milligrams is: ' + (mass / 1000).toFixed(2) + ' mg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Pounds is: ' + (mass * 2.20462e-9).toFixed(12) + ' lb</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Ounces is: ' + (mass * 3.5274e-8).toFixed(12) + ' oz</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Tons is: ' + (mass * 1.10231e-12).toFixed(15) + ' ton</td></tr>';
+        }
+
+        function Grams(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Kilograms is: ' + (mass / 1000).toFixed(5) + ' kg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Milligrams is: ' + (mass * 1000).toFixed(2) + ' mg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Micrograms is: ' + (mass * 1000000).toFixed(2) + ' µg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Pounds is: ' + (mass * 0.00220462).toFixed(5) + ' lb</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Ounces is: ' + (mass * 0.035274).toFixed(5) + ' oz</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Tons is: ' + (mass * 0.00000110231).toFixed(8) + ' ton</td></tr>';
+        }
+
+        function Kilograms(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Grams is: ' + (mass * 1000).toFixed(2) + ' g</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Milligrams is: ' + (mass * 1000000).toFixed(2) + ' mg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Micrograms is: ' + (mass * 1000000000).toFixed(2) + ' µg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Pounds is: ' + (mass * 2.20462).toFixed(5) + ' lb</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Ounces is: ' + (mass * 35.274).toFixed(5) + ' oz</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Tons is: ' + (mass * 0.00110231).toFixed(8) + ' ton</td></tr>';
+        }
+
+        function Milligrams(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Grams is: ' + (mass / 1000).toFixed(5) + ' g</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Kilograms is: ' + (mass / 1000000).toFixed(8) + ' kg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Micrograms is: ' + (mass * 1000).toFixed(2) + ' µg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Pounds is: ' + (mass * 0.00000220462).toFixed(8) + ' lb</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Ounces is: ' + (mass * 0.000035274).toFixed(8) + ' oz</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Tons is: ' + (mass * 0.00000000110231).toFixed(11) + ' ton</td></tr>';
+        }
+
+        function Pounds(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Grams is: ' + (mass * 453.592).toFixed(2) + ' g</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Kilograms is: ' + (mass * 0.453592).toFixed(6) + ' kg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Milligrams is: ' + (mass * 453592).toFixed(2) + ' mg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Micrograms is: ' + (mass * 453592000).toFixed(2) + ' µg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Ounces is: ' + (mass * 16).toFixed(2) + ' oz</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Tons is: ' + (mass * 0.0005).toFixed(4) + ' ton</td></tr>';
+        }
+
+        function Ounces(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Grams is: ' + (mass * 28.3495).toFixed(2) + ' g</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Kilograms is: ' + (mass * 0.0283495).toFixed(6) + ' kg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Milligrams is: ' + (mass * 28349.5).toFixed(2) + ' mg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Micrograms is: ' + (mass * 28349500).toFixed(2) + ' µg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Pounds is: ' + (mass * 0.0625).toFixed(4) + ' lb</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Tons is: ' + (mass * 0.00003125).toFixed(8) + ' ton</td></tr>';
+        }
+
+        function Tons(mass) {
+            document.getElementById('table').innerHTML = "";
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Grams is: ' + (mass * 907184.74).toFixed(2) + ' g</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Kilograms is: ' + (mass * 907.185).toFixed(3) + ' kg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Milligrams is: ' + (mass * 907184740).toFixed(2) + ' mg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Micrograms is: ' + (mass * 907184740000).toFixed(2) + ' µg</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Pounds is: ' + (mass * 2000).toFixed(2) + ' lb</td></tr>';
+            document.getElementById('table').innerHTML += '<tr><td>The Mass in Ounces is: ' + (mass * 32000).toFixed(2) + ' oz</td></tr>';
+        }
+
+
+    </script>
+</html>
