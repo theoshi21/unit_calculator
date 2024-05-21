@@ -1123,7 +1123,7 @@ function Grams(mass, conversionResult) {
 	}
 }
 
-function Kilograms(mass, conversionResults) {
+function Kilograms(mass, conversionResult) {
 	if(conversionResult != "Kilograms"){
 		switch(conversionResult){
 			case "Micrograms":
