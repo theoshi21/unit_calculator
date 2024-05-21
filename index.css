@@ -54,6 +54,7 @@ h1 {
 .dropdown {
   position: relative;
   display: inline-block;
+  user-select:none;
 }
 
 .dropbtn {
@@ -117,7 +118,7 @@ h1 {
 	border-radius: 25px;
 	background-color: grey;
   height: 45px;
-  width: 100px;
+  width: 150px;
 	border: 2px;
   color: white;
 }
@@ -126,8 +127,6 @@ h1 {
 	margin: 5%;
 	border-radius: 25px;
 	background-color: black;
-  height: 45px;
-  width: 100px;
 	border: 2px;
   color: grey;
 }
@@ -160,4 +159,17 @@ h1 {
 
 .buttonLine{
 	margin-bottom: 5%;
+}
+
+/* TABLE FOR THE CONVERT ALL */
+#table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+#table td{
+  text-align: left;
 }

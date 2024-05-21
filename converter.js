@@ -1,3 +1,353 @@
+var button = "";
+function convertAll(){
+	button = document.getElementById('inputUnits').value;
+            if (document.getElementById('number').value != "") {
+                var measure = parseFloat(document.getElementById('number').value);
+                switch (button) {
+                    case "Celsius":
+                        CelsiusAll(measure);
+                        break;
+                    case "Fahrenheit":
+                        FahrenheitAll(measure);
+                        break;
+                    case "Rankine":
+                        RankineAll(measure);
+                        break;
+                    case "Kelvin":
+                        KelvinAll(measure);
+                        break;
+                    case "Seconds":
+                        SecondsAll(measure);
+                        break;
+                    case "Minutes":
+                        MinutesAll(measure);
+                        break;
+                    case "Hours":
+                        HoursAll(measure);
+                        break;
+                    case "Days":
+                        DaysAll(measure);
+                        break;
+                    case "Meters":
+                        MetersAll(measure);
+                        break;
+                    case "Kilometers":
+                        KilometersAll(measure);
+                        break;
+                    case "Centimeters":
+                        CentimetersAll(measure);
+                        break;
+                    case "Millimeters":
+                        MillimetersAll(measure);
+                        break;
+                    case "Nanometers":
+                        NanometersAll(measure);
+                        break;
+                    case "Micrometers":
+                        MicrometersAll(measure);
+                        break;
+                    case "Miles":
+                        MilesAll(measure);
+                        break;
+                    case "Yards":
+                        YardsAll(measure);
+                        break;
+                    case "Feet":
+                        FeetAll(measure);
+                        break;
+                    case "Inches":
+                        InchesAll(measure);
+                        break;
+                    case "Grams":
+                        GramsAll(measure);
+                        break;
+                    case "Kilograms":
+                        KilogramsAll(measure);
+                        break;
+                    case "Milligrams":
+                        MilligramsAll(measure);
+                        break;
+                    case "Micrograms":
+                        MicrogramsAll(measure);
+                        break;
+                    case "Pounds":
+                        PoundsAll(measure);
+                        break;
+                    case "Ounces":
+                        OuncesAll(measure);
+                        break;
+                    case "Tons":
+                        TonsAll(measure);
+                        break;
+                    default:
+                        alert("Please select a valid conversion option!");
+                }
+            } else {
+                alert("Please input a number!");
+            }
+}
+
+var disp = "";
+function CelsiusAll(temp) {
+	disp = "";
+	disp += '<tr><td> Fahrenheit: </td> <td>' + (temp * (9/5) + 32).toFixed(2) + '&deg;F</td></tr>';
+	disp += '<tr><td> Rankine: </td> <td> ' + (temp * (9/5) + 491.67).toFixed(2) + '&deg;R</td></tr>';
+	disp += '<tr><td>Kelvin: </td> <td>' + (temp + 273.15).toFixed(2) + ' &deg;K</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function FahrenheitAll(temp) {
+	disp = "";
+	disp += '<tr><td>Celsius:</td> <td> ' + ((temp - 32) * (5/9)).toFixed(2) + '&deg;C</td></tr>';
+	disp += '<tr><td>Rankine:</td> <td> ' + (temp + 459.67).toFixed(2) + '&deg;R</td></tr>';
+	disp += '<tr><td>Kelvin: </td> <td>'+ ((temp + 459.67) * (5/9)).toFixed(2)+'&deg;K</td></tr>'
+	document.getElementById('table').innerHTML = disp;;
+}
+function RankineAll(temp){
+	disp = "";   
+	disp += '<tr><td>Celcius: </td> <td> '+ ((temp - 491.67)*(5/9)).toFixed(2)+'&deg;C</td></tr>';
+	disp += '<tr><td>Fahrenheit: </td> <td> '+(temp - 459.67).toFixed(2)+'&deg;F</td></tr>';
+	disp += '<tr><td>Kelvin: </td> <td>'+((temp * (5/9))).toFixed(2)+'&deg;K</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+function KelvinAll(temp){
+	disp = "";  
+	disp += '<tr><td>Celcius: </td> <td>'+ (parseFloat(temp) - 273.15).toFixed(2)+'&deg;C</td></tr>';
+	disp += '<tr><td>Fahrenheit: </td> <td>'+((temp * (9/5)) - 459.67).toFixed(2) +'&deg;F</td></tr>';
+	disp += '<tr><td>Rankine: </td> <td>'+ (temp * (9/5)).toFixed(2)+'&deg;R</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+//Time
+function SecondsAll(time){
+	disp = "";    
+	disp += '<tr><td>Minutes: </td> <td>'+ (time/60)+' minutes</td></tr>';
+	disp += '<tr><td>Hours: </td> <td>'+(time/3600)+' hours</td></tr>';
+	disp += '<tr><td>Days: </td> <td>'+(time/86400)+' days</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+function MinutesAll(time){
+	disp = ""; 
+	disp += '<tr><td>Seconds: </td> <td>'+ (time*60)+' seconds</td></tr>';
+	disp += '<tr><td>Hours: </td> <td>'+(time/60)+' hours</td></tr>';
+	disp += '<tr><td>Days: </td> <td>'+(time/1440) +' days</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+function HoursAll(time){
+	disp = "";    
+	disp += '<tr><td>Seconds: </td> <td>'+ (time*3600)+' seconds</td></tr>';
+	disp += '<tr><td>Minutes: </td> <td>'+(time*60)+' minutes</td></tr>';
+	disp += '<tr><td>Days: </td> <td>'+(time/24)+' days</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+function DaysAll(time){
+	disp = "";    
+	disp += '<tr><td>Seconds: </td> <td>'+ (time*86400)+' seconds</td></tr>';
+	disp += '<tr><td>Minutes: </td> <td>'+(time*1440)+' minutes</td></tr>';
+	disp += '<tr><td>Hours: </td> <td>'+(time*24)+' hours</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+//Length
+function MetersAll(length) {
+	disp = "";
+	disp += '<tr><td>Kilometers: </td> <td>' + (length / 1000).toFixed(5) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length * 100).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length * 1000).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length * 0.000621371).toFixed(5) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length * 1.09361).toFixed(2) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 3.28084).toFixed(2) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length * 39.3701).toFixed(2) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function KilometersAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length * 1000).toFixed(2) + ' m</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length * 100000).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length * 1000000).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length * 0.621371).toFixed(5) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length * 1093.61).toFixed(2) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 3280.84).toFixed(2) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length * 39370.1).toFixed(2) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function CentimetersAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length / 100).toFixed(5) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length / 100000).toFixed(5) + ' km</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length * 10).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length * 0.0000062137).toFixed(8) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length * 0.0109361).toFixed(5) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 0.0328084).toFixed(5) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length * 0.393701).toFixed(5) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function MillimetersAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length / 1000).toFixed(5) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length / 1000000).toFixed(7) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length / 10).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length * 0.000000621371).toFixed(9) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length * 0.00109361).toFixed(6) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 0.00328084).toFixed(6) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length * 0.0393701).toFixed(5) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function MilesAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length * 1609.34).toFixed(2) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length * 1.60934).toFixed(2) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length * 160934).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length * 1609340).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length * 1760).toFixed(2) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 5280).toFixed(2) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length * 63360).toFixed(2) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function YardsAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length * 0.9144).toFixed(2) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length * 0.0009144).toFixed(6) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length * 91.44).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length * 914.4).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length * 0.000568182).toFixed(6) + ' mi</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 3).toFixed(2) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length * 36).toFixed(2) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+function FeetAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters is: </td> <td>' + (length * 0.3048).toFixed(2) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers is: </td> <td>' + (length * 0.0003048).toFixed(6) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters is: </td> <td>' + (length * 30.48).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters is: </td> <td>' + (length * 304.8).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Miles is: </td> <td>' + (length * 0.000189394).toFixed(6) + ' mi</td></tr>';
+	disp += '<tr><td>Yards is: </td> <td>' + (length * 0.333333).toFixed(2) + ' yd</td></tr>';
+	disp += '<tr><td>Inches is: </td> <td>' + (length * 12).toFixed(2) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function InchesAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length * 0.0254).toFixed(4) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length * 0.0000254).toFixed(8) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length * 2.54).toFixed(2) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length * 25.4).toFixed(2) + ' mm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length * 0.0000157828).toFixed(10) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length * 0.0277778).toFixed(7) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length * 0.0833333).toFixed(7) + ' ft</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+function NanometersAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length / 1e9).toFixed(9) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length / 1e12).toFixed(12) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length / 1e7).toFixed(7) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length / 1e6).toFixed(6) + ' mm</td></tr>';
+	disp += '<tr><td>Micrometers: </td> <td>' + (length / 1e3).toFixed(3) + ' &mu;m</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length / 1.609e+12).toFixed(12) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length / 9.144e8).toFixed(9) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length / 3.048e8).toFixed(9) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length / 2.54e7).toFixed(7) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+	function MicrometersAll(length) {
+	disp = "";
+	disp += '<tr><td>Meters: </td> <td>' + (length / 1e6).toFixed(6) + ' m</td></tr>';
+	disp += '<tr><td>Kilometers: </td> <td>' + (length / 1e9).toFixed(9) + ' km</td></tr>';
+	disp += '<tr><td>Centimeters: </td> <td>' + (length / 1e4).toFixed(4) + ' cm</td></tr>';
+	disp += '<tr><td>Millimeters: </td> <td>' + (length / 1e3).toFixed(3) + ' mm</td></tr>';
+	disp += '<tr><td>Nanometers: </td> <td>' + (length * 1e3).toFixed(0) + ' nm</td></tr>';
+	disp += '<tr><td>Miles: </td> <td>' + (length / 1.609e+9).toFixed(9) + ' mi</td></tr>';
+	disp += '<tr><td>Yards: </td> <td>' + (length / 9.144e5).toFixed(6) + ' yd</td></tr>';
+	disp += '<tr><td>Feet: </td> <td>' + (length / 3.048e5).toFixed(6) + ' ft</td></tr>';
+	disp += '<tr><td>Inches: </td> <td>' + (length / 2.54e4).toFixed(4) + ' in</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+
+
+//Mass
+function MicrogramsAll(mass) {
+	disp = "";
+	disp += '<tr><td>Grams: </td> <td>' + (mass / 1000000).toFixed(2) + ' g</td></tr>';
+	disp += '<tr><td>Kilograms: </td> <td>' + (mass / 1000000000).toFixed(2) + ' kg</td></tr>';
+	disp += '<tr><td>Milligrams: </td> <td>' + (mass / 1000).toFixed(2) + ' mg</td></tr>';
+	disp += '<tr><td>Pounds: </td> <td>' + (mass * 2.20462e-9).toFixed(12) + ' lb</td></tr>';
+	disp += '<tr><td>Ounces: </td> <td>' + (mass * 3.5274e-8).toFixed(12) + ' oz</td></tr>';
+	disp += '<tr><td>Tons: </td> <td>' + (mass * 1.10231e-12).toFixed(15) + ' ton</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function GramsAll(mass) {
+	disp = "";
+	disp += '<tr><td>Kilograms: </td> <td>' + (mass / 1000).toFixed(5) + ' kg</td></tr>';
+	disp += '<tr><td>Milligrams: </td> <td>' + (mass * 1000).toFixed(2) + ' mg</td></tr>';
+	disp += '<tr><td>Micrograms: </td> <td>' + (mass * 1000000).toFixed(2) + ' &mu;g</td></tr>';
+	disp += '<tr><td>Pounds: </td> <td>' + (mass * 0.00220462).toFixed(5) + ' lb</td></tr>';
+	disp += '<tr><td>Ounces: </td> <td>' + (mass * 0.035274).toFixed(5) + ' oz</td></tr>';
+	disp += '<tr><td>Tons: </td> <td>' + (mass * 0.00000110231).toFixed(8) + ' ton</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function KilogramsAll(mass) {
+	disp = "";
+	disp += '<tr><td>Grams: </td> <td>' + (mass * 1000).toFixed(2) + ' g</td></tr>';
+	disp += '<tr><td>Milligrams: </td> <td>' + (mass * 1000000).toFixed(2) + ' mg</td></tr>';
+	disp += '<tr><td>Micrograms: </td> <td>' + (mass * 1000000000).toFixed(2) + ' &mu;g</td></tr>';
+	disp += '<tr><td>Pounds: </td> <td>' + (mass * 2.20462).toFixed(5) + ' lb</td></tr>';
+	disp += '<tr><td>Ounces: </td> <td>' + (mass * 35.274).toFixed(5) + ' oz</td></tr>';
+	disp += '<tr><td>Tons: </td> <td>' + (mass * 0.00110231).toFixed(8) + ' ton</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function MilligramsAll(mass) {
+	disp = "";
+	disp += '<tr><td>Grams: </td> <td>' + (mass / 1000).toFixed(5) + ' g</td></tr>';
+	disp += '<tr><td>Kilograms: </td> <td>' + (mass / 1000000).toFixed(8) + ' kg</td></tr>';
+	disp += '<tr><td>Micrograms: </td> <td>' + (mass * 1000).toFixed(2) + ' &mu;g</td></tr>';
+	disp += '<tr><td>Pounds: </td> <td>' + (mass * 0.00000220462).toFixed(8) + ' lb</td></tr>';
+	disp += '<tr><td>Ounces: </td> <td>' + (mass * 0.000035274).toFixed(8) + ' oz</td></tr>';
+	disp += '<tr><td>Tons: </td> <td>' + (mass * 0.00000000110231).toFixed(11) + ' ton</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function PoundsAll(mass) {
+	disp = "";
+	disp += '<tr><td>Grams: </td> <td>' + (mass * 453.592).toFixed(2) + ' g</td></tr>';
+	disp += '<tr><td>Kilograms: </td> <td>' + (mass * 0.453592).toFixed(6) + ' kg</td></tr>';
+	disp += '<tr><td>Milligrams: </td> <td>' + (mass * 453592).toFixed(2) + ' mg</td></tr>';
+	disp += '<tr><td>Micrograms: </td> <td>' + (mass * 453592000).toFixed(2) + ' &mu;g</td></tr>';
+	disp += '<tr><td>Ounces: </td> <td>' + (mass * 16).toFixed(2) + ' oz</td></tr>';
+	disp += '<tr><td>Tons: </td> <td>' + (mass * 0.0005).toFixed(4) + ' ton</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function OuncesAll(mass) {
+	disp = "";
+	disp += '<tr><td>Grams: </td> <td>' + (mass * 28.3495).toFixed(2) + ' g</td></tr>';
+	disp += '<tr><td>Kilograms: </td> <td>' + (mass * 0.0283495).toFixed(6) + ' kg</td></tr>';
+	disp += '<tr><td>Milligrams: </td> <td>' + (mass * 28349.5).toFixed(2) + ' mg</td></tr>';
+	disp += '<tr><td>Micrograms: </td> <td>' + (mass * 28349500).toFixed(2) + ' &mu;g</td></tr>';
+	disp += '<tr><td>Pounds: </td> <td>' + (mass * 0.0625).toFixed(4) + ' lb</td></tr>';
+	disp += '<tr><td>Tons: </td> <td>' + (mass * 0.00003125).toFixed(8) + ' ton</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
+
+function TonsAll(mass) {
+	disp = "";
+	disp += '<tr><td>Grams: </td> <td>' + (mass * 907184.74).toFixed(2) + ' g</td></tr>';
+	disp += '<tr><td>Kilograms: </td> <td>' + (mass * 907.185).toFixed(3) + ' kg</td></tr>';
+	disp += '<tr><td>Milligrams: </td> <td>' + (mass * 907184740).toFixed(2) + ' mg</td></tr>';
+	disp += '<tr><td>Micrograms: </td> <td>' + (mass * 907184740000).toFixed(2) + ' &mu;g</td></tr>';
+	disp += '<tr><td>Pounds: </td> <td>' + (mass * 2000).toFixed(2) + ' lb</td></tr>';
+	disp += '<tr><td>Ounces: </td> <td>' + (mass * 32000).toFixed(2) + ' oz</td></tr>';
+	document.getElementById('table').innerHTML = disp;
+}
 
 function temp(){
 	document.getElementById("inputUnits").innerHTML = "<option selected disabled value=''></option>";
@@ -200,7 +550,7 @@ function Celsius(temp, conversionResult) {
 				document.getElementById("resulta").innerHTML = (temp * (9/5) + 491.67).toFixed(2)+"&deg;R"
 				break;
 			case "Kelvin":
-				document.getElementById("resulta").innerHTML = (temp + 273.15).toFixed(2) + "&deg;K"
+				document.getElementById("resulta").innerHTML = (parseFloat(temp) + 273.15).toFixed(2) + "&deg;K"
 				break;
 		}
 	}
@@ -228,7 +578,7 @@ function Fahrenheit(temp, conversionResult) {
 	}
 }
 
-function Rankine(temp){
+function Rankine(temp, conversionResult){
 	if(conversionResult != "Rankine"){
 		switch(conversionResult){
 			case "Celsius":
@@ -247,7 +597,7 @@ function Rankine(temp){
 	}
 
 }
-function Kelvin(temp){
+function Kelvin(temp, conversionResult){
 	if(conversionResult != "Kelvin"){
 		switch(conversionResult){
 			case "Celsius":

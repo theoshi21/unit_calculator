@@ -23,14 +23,14 @@
       <div class="alignInLine">
         <input type="number" id="number">
         <div class="dropdown">
-          <select class="dropbtn" id="inputUnits"></select>
+          <select disabled class="dropbtn" id="inputUnits"></select>
           <div class="dropdownContent" id="units">
             <a>Choose a quantity!</a>
           </div>
         </div>
         <div class="result" id="resulta">&nbsp;</div>
         <div class="dropdown">
-          <select class="dropbtn" id="resultUnits">Dropdown</select>
+          <select  disabled class="dropbtn" id="resultUnits">Dropdown</select>
           <div class="dropdownContent" id="unitsResult">
             <a>Choose a quantity!</a>
           </div>
@@ -38,6 +38,9 @@
       </div>
 
       <button class="convert" onclick="convert()">CONVERT</button>
+      <button class="convert" onclick="convertAll()">CONVERT ALL</button>
+      <table id="table">
+      </table>
     </div>
   </div>
 
